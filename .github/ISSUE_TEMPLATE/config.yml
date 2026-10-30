@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Account, privacy or payment questions
+    url: https://github.com/TeeEndVN/mojimo_support#contact
+    about: Email us privately instead of opening a public issue.
+  - name: Delete your account and data
+    url: https://github.com/TeeEndVN/mojimo_support/blob/main/legal/delete-account.html
+    about: How to ask us to delete your account.
