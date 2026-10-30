@@ -1,0 +1,103 @@
+name: Bug report
+description: Something in Mojimo doesn't work as expected.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Issues here are **public**: don't include your email, passwords or other personal information, and blur anything private in screenshots.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Tap ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Part of the app
+      options:
+        - Scanner (floating button, screen capture)
+        - Reader
+        - Dictionary
+        - Kanji
+        - Library and word lists
+        - Cloud save
+        - AI sentence analysis
+        - Pro subscription and purchases
+        - Sign-in and account
+        - Anki export
+        - Settings
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Sometimes
+        - Once
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Shown in Settings.
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android
+        - iOS
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS version
+      placeholder: Pixel 8, Android 15
+    validations:
+      required: true
+  - type: dropdown
+    id: pro
+    attributes:
+      label: Do you have Pro?
+      options:
+        - "No"
+        - "Yes"
+        - Not sure
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or recordings
+      description: Drag files here. Blur any private information first.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: The text you scanned, the app you scanned from, or other details that might help.
