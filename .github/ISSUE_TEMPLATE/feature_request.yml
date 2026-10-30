@@ -1,0 +1,72 @@
+name: Feature request
+description: Suggest an improvement or a new feature for Mojimo.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Issues here are **public**: don't include your email or other personal information.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe what is hard, slow or missing today.
+      placeholder: When I read manga, I have to ...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like Mojimo to do?
+      description: Describe the feature or change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: How do you handle this now?
+      description: Workarounds or other apps you use for this.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Part of the app
+      options:
+        - Scanner (floating button, screen capture)
+        - Reader
+        - Dictionary
+        - Kanji
+        - Library and word lists
+        - Cloud save
+        - AI sentence analysis
+        - Pro subscription and purchases
+        - Sign-in and account
+        - Anki export
+        - Settings
+        - New area
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is this to you?
+      options:
+        - Nice to have
+        - Would use it often
+        - Can't use Mojimo well without it
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - Android
+        - iOS
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Mockups or examples
+      description: Sketches, screenshots or links to apps that do this well.
