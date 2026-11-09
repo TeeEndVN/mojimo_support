@@ -11,16 +11,19 @@ Support for the Mojimo app: legal documents, bug reports and feature requests.
 
 Issues are public. Don't post your email, passwords or other personal information, and blur private content in screenshots. For account, privacy or payment questions, email us instead (see [Contact](#contact)).
 
-## Legal documents
+## Website
+
+Landing page: https://teeendvn.github.io/mojimo_support/
 
 | Page | File |
 |---|---|
-| Landing page | [`legal/index.html`](legal/index.html) |
+| Mojimo landing page | [`index.html`](index.html) |
+| Support hub | [`legal/index.html`](legal/index.html) |
 | Privacy Policy | [`legal/privacy.html`](legal/privacy.html) |
 | Terms of Use | [`legal/terms.html`](legal/terms.html) |
 | Delete account and data | [`legal/delete-account.html`](legal/delete-account.html) |
 
-Static HTML with a shared [`legal/style.css`](legal/style.css) (light and dark mode). There is no build step.
+Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.github.io/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
 
 ## Contact
 
@@ -35,7 +38,7 @@ nghiaht275.work@gmail.com
 **GitHub Pages** (repository must be public on a free plan):
 
 1. Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
-2. Pages are served at `https://teeendvn.github.io/mojimo_support/legal/privacy.html` (and so on).
+2. The landing page is served at `https://teeendvn.github.io/mojimo_support/` and the legal pages at `https://teeendvn.github.io/mojimo_support/legal/privacy.html` (and so on).
 
 The empty `.nojekyll` file makes GitHub Pages serve the files as they are.
 
@@ -43,7 +46,7 @@ The empty `.nojekyll` file makes GitHub Pages serve the files as they are.
 
 1. Create a project from this repository, production branch `main`.
 2. Leave the build command empty and set the output directory to `legal`.
-3. Pages are served at `https://<project>.pages.dev/privacy.html`.
+3. Pages are served at `https://<project>.pages.dev/privacy.html`. With `legal` as the output directory the landing page, the header icon and the "Mojimo home" links are not deployed; set the output directory to the repository root to include them.
 
 ### Where the links go
 
