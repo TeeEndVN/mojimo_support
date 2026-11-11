@@ -13,7 +13,7 @@ Issues are public. Don't post your email, passwords or other personal informatio
 
 ## Website
 
-Landing page: https://teeendvn.github.io/mojimo_support/
+Landing page: https://mojimo.teeendvn.com/
 
 | Page | File |
 |---|---|
@@ -23,7 +23,7 @@ Landing page: https://teeendvn.github.io/mojimo_support/
 | Terms of Use | [`legal/terms.html`](legal/terms.html) |
 | Delete account and data | [`legal/delete-account.html`](legal/delete-account.html) |
 
-Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.github.io/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
+Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.com/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
 
 ## Contact
 
@@ -38,9 +38,11 @@ nghiaht275.work@gmail.com
 **GitHub Pages** (repository must be public on a free plan):
 
 1. Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
-2. The landing page is served at `https://teeendvn.github.io/mojimo_support/` and the legal pages at `https://teeendvn.github.io/mojimo_support/legal/privacy.html` (and so on).
+2. The landing page is served at `https://mojimo.teeendvn.com/` and the legal pages at `https://mojimo.teeendvn.com/legal/privacy.html` (and so on).
 
 The empty `.nojekyll` file makes GitHub Pages serve the files as they are.
+
+The custom domain comes from the [`CNAME`](CNAME) file (`mojimo.teeendvn.com`). DNS is on Cloudflare: a `CNAME` record `mojimo` → `teeendvn.github.io`, set to *DNS only*, so GitHub can issue the HTTPS certificate. Old `teeendvn.github.io/mojimo_support/` links redirect to the new domain.
 
 **Cloudflare Pages** (works with a private repository, but issues need the repository to be public):
 
