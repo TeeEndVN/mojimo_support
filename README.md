@@ -27,7 +27,7 @@ Static HTML, no build step. The landing page has its styles inline; the legal pa
 
 ## Contact
 
-nghiaht275.work@gmail.com
+support@teeendvn.com
 
 ---
 
