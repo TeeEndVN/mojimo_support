@@ -15,13 +15,13 @@
 <a class="brand" href="../index.html"><img src="../assets/mojimo-icon-64.png" alt="" width="32" height="32">Mojimo</a>
 <nav><a href="index.html">Support</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete account</a></nav>
 <h1>Privacy Policy</h1>
-<p class="meta">Effective date: November 6, 2026</p>
+<p class="meta">Effective date: November 12, 2026</p>
 
 <p>This policy explains what information the Mojimo mobile app ("Mojimo", "the app") collects, why, and what choices you have. "We" and "us" refer to the developer of Mojimo. If you have questions, email <a href="mailto:support@teeendvn.com">support@teeendvn.com</a>.</p>
 
 <h2>1. Summary</h2>
 <ul>
-<li>Screen scans are processed <strong>on your device</strong>. Screenshots are not uploaded and are discarded after the text is read.</li>
+<li>Screen scans and imported images are processed <strong>on your device</strong>. Screenshots are not uploaded and are deleted after the text is read.</li>
 <li>Your saved words, lists and scan history are stored <strong>on your device</strong>. They are copied to our servers only if you turn on Pro cloud save.</li>
 <li>If you use Pro AI sentence analysis, the selected text is sent to our server and to an AI provider to produce the explanation. If you report an AI result, the report is sent to us for review.</li>
 <li>We collect usage analytics and crash reports to improve the app and fix bugs.</li>
@@ -31,22 +31,29 @@
 <h2>2. Information we collect</h2>
 
 <h3>2.1 Account information</h3>
-<p>You can sign in with Google. When you do, we receive your Google account email address, name, profile picture (if any) and a Google account identifier. We use them to create and identify your Mojimo account, link your Pro subscription and keep your cloud save.</p>
+<p>You can sign in with Google, or create an account with your email address and a password.</p>
+<ul>
+<li><strong>Google:</strong> we receive your Google account email address, name, profile picture (if any) and a Google account identifier.</li>
+<li><strong>Email and password:</strong> we store your email address, the name you enter and your password in hashed form (we never see or store the password itself). To confirm your email and to reset a forgotten password, we email you a one-time 6-digit code.</li>
+</ul>
+<p>We use this information to create and identify your Mojimo account, link your Pro subscription and keep your cloud save. You can change your name, and the password of an email account, in the app (Profile → Edit profile).</p>
 
 <h3>2.2 Screen captures and scanned text</h3>
-<p>On Android, Mojimo shows a floating scan button over other apps. When you tap it, the app takes a single screen capture with your permission (Android's screen-capture prompt). The capture is processed on your device by on-device text recognition. The image is released from memory after the text is recognised and is not stored or uploaded. Mojimo never records your screen continuously.</p>
+<p>On Android, Mojimo shows a floating scan button over other apps. When you tap it, the app takes a single screen capture with your permission (Android's screen-capture prompt). The capture is processed on your device by on-device text recognition. It is written briefly to the app's private cache, deleted after the text is recognised, and never uploaded. Small cropped previews of the text areas stay in memory only while the results are open. Mojimo never records your screen continuously.</p>
+<p>You can also pick an image from your gallery to scan. It is processed on your device in the same way and is not uploaded.</p>
 <p>The recognised text is kept in your scan history on your device. You can delete all past scans in Settings.</p>
 
 <h3>2.3 Your library</h3>
 <p>Words you save, your vocabulary lists and study data are stored in a database on your device.</p>
-<p>If you have Pro and use cloud save, a copy of your library (saved words, lists and their notes), the number of words and lists, and your device's name are uploaded to our database so you can restore or sync them on another device.</p>
+<p>If you have Pro and use cloud save, a copy of your library (saved words, lists and their notes), the number of words and lists, and your device type (Android or iOS) are uploaded to our database so you can restore or sync them on another device.</p>
 
 <h3>2.4 AI sentence analysis (Pro)</h3>
-<p>When you ask Mojimo to analyse a sentence, the sentence text and your chosen translation language are sent to our server. The server forwards the text to a third-party AI provider to generate the translation and explanation, and returns the result to you. We record how many analyses your account has used this month to apply the monthly limit. Do not analyse text that contains sensitive personal information.</p>
+<p>When you ask Mojimo to analyse a sentence, the sentence text and your chosen translation language are sent to our server. The server forwards the text to our AI provider (Google Gemini API) to generate the translation and explanation, and returns the result to you. We record how many analyses your account has used this month to apply the monthly limit. Do not analyse text that contains sensitive personal information.</p>
 <p>Below each AI result there is a notice with a <strong>Report</strong> link. If you report a result, we receive the sentence text, the AI's translation and explanation, your translation language, the reason you chose and your account ID, so we can review the result and improve the feature. Reports are not sent to the AI provider.</p>
 
 <h3>2.5 Purchases</h3>
 <p>Pro subscriptions are bought through Google Play or the Apple App Store. We do not receive your card or payment details. A subscription management service receives your purchase receipts, an app user ID linked to your Mojimo account, and basic device information, so we can tell whether your account has Pro.</p>
+<p>If you redeem a gift code, we record your account ID, the code you redeemed, when you redeemed it and when the gift Pro ends. To stop guessing of codes, we also briefly record failed redemption attempts linked to your account ID and delete them after 7 days.</p>
 
 <h3>2.6 Usage analytics and crash reports</h3>
 <p>We use an analytics service to record app events such as screens viewed, sign-in, scans (number of results), words saved, AI analyses (result and language), AI result reports (reason and whether they were sent), paywall views, purchases and restores, and Anki exports. We use a crash-reporting service to collect crash reports and error details (device model, OS version, app version, stack traces). When you are signed in, these are linked to your account ID and Pro status. These services also collect an app instance ID and device information.</p>
@@ -62,6 +69,7 @@
 <tr><td>Foreground service</td><td>Keeps the scan button running while you use other apps.</td></tr>
 <tr><td>Notifications</td><td>Shows the notification Android requires while the scan button is active.</td></tr>
 <tr><td>Internet</td><td>Sign-in, cloud save, AI analysis, purchases, analytics and crash reports.</td></tr>
+<tr><td>Photos (picker)</td><td>Lets you choose an image to scan. Only the image you pick is read.</td></tr>
 </table></div>
 
 <h2>3. How we use information</h2>
@@ -80,11 +88,14 @@
 <div class="table-wrap"><table>
 <tr><th>Type of provider</th><th>Purpose</th></tr>
 <tr><td>Cloud hosting and database</td><td>Accounts, cloud save, server functions</td></tr>
-<tr><td>Sign-in provider (Google)</td><td>Signing in to your account</td></tr>
+<tr><td>Sign-in provider (Google)</td><td>Signing in with Google</td></tr>
+<tr><td>Email delivery (Resend)</td><td>Sending sign-up and password-reset codes (receives your email address)</td></tr>
+<tr><td>Email hosting (Zoho Mail)</td><td>Receiving and answering messages you send to support@teeendvn.com</td></tr>
+<tr><td>Bot protection (Cloudflare Turnstile)</td><td>Checking that email sign-up, sign-in and password resets come from a person (receives technical data such as your IP address)</td></tr>
 <tr><td>Analytics and crash reporting</td><td>Usage statistics and crash reports</td></tr>
 <tr><td>Subscription management</td><td>Checking Pro status</td></tr>
 <tr><td>App stores (Google Play, App Store)</td><td>Payments</td></tr>
-<tr><td>AI provider</td><td>AI sentence analysis (Pro)</td></tr>
+<tr><td>AI provider (Google Gemini API)</td><td>AI sentence analysis (Pro)</td></tr>
 </table></div>
 <p>We may also disclose information if required by law, or to protect the rights and safety of our users or of us. These providers may process data in countries other than yours, including the United States; we rely on their contractual safeguards for those transfers.</p>
 
@@ -93,6 +104,8 @@
 <li>Account and cloud save data: until you delete your account.</li>
 <li>AI analysis text: not stored by us after the result is returned, apart from usage counts. The AI provider's retention follows its own API policy.</li>
 <li>AI result reports: kept for up to 12 months, then deleted automatically; deleted sooner if you delete your account.</li>
+<li>Failed gift-code attempts: deleted after 7 days.</li>
+<li>Emails you send to support: kept as long as needed to answer you, then deleted within 12 months.</li>
 <li>Analytics data: kept for up to 14 months.</li>
 <li>Crash reports: kept for up to 90 days.</li>
 <li>Data on your device: until you delete it or uninstall the app.</li>
@@ -108,7 +121,7 @@
 </ul>
 
 <h2>7. Security</h2>
-<p>Data is sent over encrypted connections (HTTPS). Sign-in tokens are kept in your device's secure storage. Your cloud data is protected so that only your account can read it. No system is perfectly secure, but we work to protect your information.</p>
+<p>Data is sent over encrypted connections (HTTPS). Sign-in data is kept in the app's private storage on your device and is excluded from device backups. Your cloud data is protected so that only your account can read it. No system is perfectly secure, but we work to protect your information.</p>
 
 <h2>8. Children</h2>
 <p>Mojimo is not directed at children under 13 (or the minimum age in your country). We do not knowingly collect personal information from them. If you think a child has given us personal information, contact us and we will delete it.</p>
