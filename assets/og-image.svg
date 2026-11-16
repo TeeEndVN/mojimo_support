@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="page-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B2740"/>
+      <stop offset="1" stop-color="#0E1320"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.27" cy="0.5" r="0.45">
+      <stop offset="0" stop-color="#2F7FEA" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#2F7FEA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#page-bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(110 100) scale(0.41992)">
+    <rect width="1024" height="1024" rx="232" fill="none" stroke="#2F7FEA" stroke-opacity="0.35" stroke-width="10"/>
+    <defs>
+    <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B2740"/>
+      <stop offset="1" stop-color="#0E1320"/>
+    </linearGradient>
+    <radialGradient id="logo-body" cx="0.42" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.7" stop-color="#F3F7FF"/>
+      <stop offset="1" stop-color="#DCE7FA"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="232" fill="url(#logo-bg)"/>
+  <g fill="none" stroke="#2F7FEA" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 168 300 V 232 Q 168 168 232 168 H 300"/>
+    <path d="M 724 168 H 792 Q 856 168 856 232 V 300"/>
+    <path d="M 856 724 V 792 Q 856 856 792 856 H 724"/>
+    <path d="M 300 856 H 232 Q 168 856 168 792 V 724"/>
+  </g>
+  <ellipse cx="512" cy="790" rx="250" ry="34" fill="#000000" fill-opacity="0.35"/>
+  <path d="M 512 340
+           C 720 340, 810 470, 810 610
+           C 810 740, 690 790, 512 790
+           C 334 790, 214 740, 214 610
+           C 214 470, 304 340, 512 340 Z" fill="url(#logo-body)"/>
+  <path d="M 482 342 C 478 292, 500 262, 540 252" fill="none" stroke="#FFFFFF" stroke-width="26" stroke-linecap="round"/>
+  <ellipse cx="550" cy="246" rx="42" ry="25" transform="rotate(-24 550 246)" fill="#7BE0A8"/>
+  <ellipse cx="420" cy="590" rx="34" ry="44" fill="#1B2740"/>
+  <ellipse cx="604" cy="590" rx="34" ry="44" fill="#1B2740"/>
+  <circle cx="432" cy="574" r="12" fill="#FFFFFF"/>
+  <circle cx="616" cy="574" r="12" fill="#FFFFFF"/>
+  <ellipse cx="340" cy="656" rx="42" ry="24" fill="#FF8FB1" fill-opacity="0.7"/>
+  <ellipse cx="684" cy="656" rx="42" ry="24" fill="#FF8FB1" fill-opacity="0.7"/>
+  <path d="M 476 652 Q 494 674 512 652 Q 530 674 548 652" fill="none" stroke="#1B2740" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M319 1264Q519 1230 737 1221L747 1294L760 1370L778 1495L786 1554L796 1618L956 1595Q919 1396 895 1221Q1112 1223 1358 1260V1118Q1171 1086 874 1079Q852 940 833 762Q1044 762 1290 803V659Q1075 623 815 623Q793 497 793 389Q793 61 1155 61Q1526 61 1526 389Q1526 534 1477 682L1639 698Q1688 548 1688 395Q1688 151 1528 24Q1391 -82 1155 -82Q641 -82 641 369Q641 425 657 573Q657 582 659 588Q660 594 661 611Q662 621 663 627Q435 648 323 670L338 813Q506 778 680 768L686 813L692 877Q693 882 719 1081Q496 1090 301 1126Z" transform="translate(456.00 486) scale(0.05469 -0.05469)" fill="#2F7FEA" stroke="#2F7FEA" stroke-width="128.0" stroke-linejoin="round"/>
+  </g>
+  <text x="620" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, sans-serif" font-size="34" font-weight="600" fill="#5B9DF0">日本語を、どこでも</text>
+  <text x="616" y="336" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="96" font-weight="700" fill="#FFFFFF" letter-spacing="-2">Mojimo</text>
+  <text font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="38" font-weight="500" fill="#C9D6EE">
+    <tspan x="620" y="404">Read Japanese anywhere</tspan>
+    <tspan x="620" y="454">on your phone</tspan>
+  </text>
+</svg>

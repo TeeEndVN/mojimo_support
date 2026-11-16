@@ -23,6 +23,9 @@ Landing page: https://mojimo.teeendvn.com/
 | Terms of Use | [`legal/terms.html`](legal/terms.html) |
 | Delete account and data | [`legal/delete-account.html`](legal/delete-account.html) |
 | Android App Links | [`.well-known/assetlinks.json`](.well-known/assetlinks.json) |
+| Not found page | [`404.html`](404.html) |
+| Crawler rules and sitemap | [`robots.txt`](robots.txt), [`sitemap.xml`](sitemap.xml) |
+| Link preview image | [`assets/og-image.jpg`](assets/og-image.jpg) (source [`assets/og-image.svg`](assets/og-image.svg)) |
 
 Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.com/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
 
@@ -67,6 +70,21 @@ curl -s "https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.
 adb shell pm verify-app-links --re-verify com.teeendvn.mojimo.prod
 adb shell pm get-app-links com.teeendvn.mojimo.prod
 ```
+
+### Search and link previews
+
+- Every page has a `<title>`, a meta description, a `rel="canonical"` URL on `https://mojimo.teeendvn.com/...` and Open Graph tags. Give a new page the same set.
+- When you add a page or change its content, add it to [`sitemap.xml`](sitemap.xml) or update its `lastmod`.
+- The landing page has a `MobileApplication` JSON-LD block. Keep its description and Play URL in line with the page, and don't add ratings without real data.
+- [`assets/og-image.jpg`](assets/og-image.jpg) (1200×630) is the link preview image. It is built from [`assets/og-image.svg`](assets/og-image.svg), which embeds the app icon from `mojimo_flutter/assets/svgs/app_logo.svg`. To regenerate it on macOS:
+
+  ```sh
+  sed '1s/viewBox="0 0 1200 630"/viewBox="0 -285 1200 1200"/; 1s/height="630"/height="1200"/' assets/og-image.svg > /tmp/og-square.svg
+  qlmanage -t -s 1200 -o /tmp /tmp/og-square.svg
+  sips --cropToHeightWidth 630 1200 /tmp/og-square.svg.png -s format jpeg -s formatOptions 90 --out assets/og-image.jpg
+  ```
+
+- Search Console: the domain property `mojimo.teeendvn.com` is verified with a DNS TXT record on Cloudflare. Submit `https://mojimo.teeendvn.com/sitemap.xml` there.
 
 ### Where the links go
 
