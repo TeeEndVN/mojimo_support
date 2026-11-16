@@ -22,6 +22,7 @@ Landing page: https://mojimo.teeendvn.com/
 | Privacy Policy | [`legal/privacy.html`](legal/privacy.html) |
 | Terms of Use | [`legal/terms.html`](legal/terms.html) |
 | Delete account and data | [`legal/delete-account.html`](legal/delete-account.html) |
+| Android App Links | [`.well-known/assetlinks.json`](.well-known/assetlinks.json) |
 
 Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.com/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
 
@@ -49,6 +50,23 @@ The custom domain comes from the [`CNAME`](CNAME) file (`mojimo.teeendvn.com`). 
 1. Create a project from this repository, production branch `main`.
 2. Leave the build command empty and set the output directory to `legal`.
 3. Pages are served at `https://<project>.pages.dev/privacy.html`. With `legal` as the output directory the landing page, the header icon and the "Mojimo home" links are not deployed; set the output directory to the repository root to include them.
+
+### App Links
+
+[`.well-known/assetlinks.json`](.well-known/assetlinks.json) verifies `mojimo.teeendvn.com` for the Android app `com.teeendvn.mojimo.prod`, so Play Console's Deep links page lists the domain as verified.
+
+- It lists two SHA-256 fingerprints: the app signing key and the upload key, both from Play Console → Test and release → App integrity → App signing. Update it if a key changes.
+- The app claims only `https://mojimo.teeendvn.com/scan`, so the landing and legal pages still open in the browser.
+- Keep the file at this path. Android reads it from the domain root and doesn't follow redirects. `.nojekyll` makes GitHub Pages serve the dot-folder.
+
+Check it:
+
+```sh
+curl -sI https://mojimo.teeendvn.com/.well-known/assetlinks.json
+curl -s "https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://mojimo.teeendvn.com&relation=delegate_permission/common.handle_all_urls"
+adb shell pm verify-app-links --re-verify com.teeendvn.mojimo.prod
+adb shell pm get-app-links com.teeendvn.mojimo.prod
+```
 
 ### Where the links go
 
