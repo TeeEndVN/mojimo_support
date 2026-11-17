@@ -1,0 +1,149 @@
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --text: #1b1b1f;
+  --muted: #5f6068;
+  --border: #e6e5e0;
+  --accent: #2f7fe6;
+  --accent-soft: #e6f0fd;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121214;
+    --surface: #1b1b1f;
+    --text: #ececee;
+    --muted: #a0a1a8;
+    --border: #2c2c32;
+    --accent: #5b9df0;
+    --accent-soft: #15213a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.brand img { width: 32px; height: 32px; border-radius: 8px; display: block; }
+.top nav { display: flex; gap: 18px; font-size: 0.95rem; }
+.top nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.top nav a:hover, .top nav a[aria-current] { color: var(--accent); }
+
+.content { max-width: 680px; margin: 0 auto; padding: 32px 0 64px; }
+.content h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+.content h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 48px 0 12px;
+}
+.content p, .content li { font-size: 1.05rem; }
+.content p { margin: 0 0 16px; }
+.content ol, .content ul { padding-left: 1.4em; margin: 0 0 16px; }
+.content li { margin: 0 0 10px; }
+.content li::marker { color: var(--accent); font-weight: 600; }
+.content img { max-width: 100%; height: auto; display: block; }
+.meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 32px; }
+.lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 32px; }
+
+.content figure { margin: 16px 0 28px; }
+.content figure img {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  width: 100%;
+}
+.content figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; text-align: center; }
+
+.content blockquote {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+}
+.content blockquote p { margin: 0; font-size: 0.98rem; }
+
+.cta {
+  margin: 48px 0 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cta img.icon { width: 64px; height: 64px; border-radius: 15px; flex: none; }
+.cta h2 { margin: 0 0 4px; font-size: 1.15rem; }
+.cta p { margin: 0 0 8px; color: var(--muted); font-size: 0.95rem; }
+.cta .play { display: inline-block; margin-left: -10px; }
+.cta .play img { height: 56px; width: auto; }
+.back { display: inline-block; margin-top: 32px; font-weight: 500; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+
+.posts { list-style: none; padding: 0; margin: 0; }
+.posts li { margin: 0; }
+.posts a.post {
+  display: block;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  text-decoration: none;
+}
+.posts a.post:hover { border-color: var(--accent); }
+.posts a.post:hover h2 { color: var(--accent); }
+.posts h2 { margin: 0 0 6px; font-size: 1.2rem; }
+.posts p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.posts time { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 4px; }
+
+footer {
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+footer a { color: var(--muted); }
+footer .grow { flex: 1; }
+
+@media (max-width: 480px) {
+  .top nav { gap: 14px; font-size: 0.9rem; }
+  .content { padding-top: 16px; }
+  .content h1 { font-size: 1.9rem; }
+  .content h2 { font-size: 1.3rem; }
+  .cta { flex-direction: column; align-items: flex-start; }
+}

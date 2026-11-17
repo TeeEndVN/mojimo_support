@@ -1,0 +1,20 @@
+---
+layout: default
+title: Mojimo blog
+description: Guides and tips for reading Japanese games, manga and apps on your phone with Mojimo.
+---
+<section class="content">
+  <h1>Blog</h1>
+  <p class="lead">Guides and tips for reading Japanese games, manga and apps on your phone.</p>
+  <ul class="posts">
+    {%- for post in site.posts %}
+    <li>
+      <a class="post" href="{{ post.url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description }}</p>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

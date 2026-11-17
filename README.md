@@ -24,10 +24,11 @@ Landing page: https://mojimo.teeendvn.com/
 | Delete account and data | [`legal/delete-account.html`](legal/delete-account.html) |
 | Android App Links | [`.well-known/assetlinks.json`](.well-known/assetlinks.json) |
 | Not found page | [`404.html`](404.html) |
-| Crawler rules and sitemap | [`robots.txt`](robots.txt), [`sitemap.xml`](sitemap.xml) |
+| Blog | [`blog/index.html`](blog/index.html), posts in [`_posts/`](_posts) |
+| Crawler rules | [`robots.txt`](robots.txt) (`/sitemap.xml` and `/feed.xml` are generated) |
 | Link preview image | [`assets/og-image.jpg`](assets/og-image.jpg) (source [`assets/og-image.svg`](assets/og-image.svg)) |
 
-Static HTML, no build step. The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.com/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
+GitHub Pages builds the site with Jekyll. Pages without front matter (the landing page, legal pages, `404.html`, `robots.txt`) are copied as they are; only the blog uses the layouts in [`_layouts/`](_layouts) and [`assets/css/blog.css`](assets/css/blog.css). The landing page has its styles inline; the legal pages share [`legal/style.css`](legal/style.css). Both use the same look as https://teeendvn.com/ (Inter font, same colours, light and dark mode). Icons live in [`assets/`](assets).
 
 ## Contact
 
@@ -44,7 +45,7 @@ support@teeendvn.com
 1. Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
 2. The landing page is served at `https://mojimo.teeendvn.com/` and the legal pages at `https://mojimo.teeendvn.com/legal/privacy.html` (and so on).
 
-The empty `.nojekyll` file makes GitHub Pages serve the files as they are.
+Pages builds with Jekyll ([`_config.yml`](_config.yml)). Files without front matter are copied unchanged.
 
 The custom domain comes from the [`CNAME`](CNAME) file (`mojimo.teeendvn.com`). DNS is on Cloudflare: a `CNAME` record `mojimo` → `teeendvn.github.io`, set to *DNS only*, so GitHub can issue the HTTPS certificate. Old `teeendvn.github.io/mojimo_support/` links redirect to the new domain.
 
@@ -60,7 +61,7 @@ The custom domain comes from the [`CNAME`](CNAME) file (`mojimo.teeendvn.com`). 
 
 - It lists two SHA-256 fingerprints: the app signing key and the upload key, both from Play Console → Test and release → App integrity → App signing. Update it if a key changes.
 - The app claims only `https://mojimo.teeendvn.com/scan`, so the landing and legal pages still open in the browser.
-- Keep the file at this path. Android reads it from the domain root and doesn't follow redirects. `.nojekyll` makes GitHub Pages serve the dot-folder.
+- Keep the file at this path. Android reads it from the domain root and doesn't follow redirects. `_config.yml` lists it under `include`, because Jekyll skips dot-folders by default.
 
 Check it:
 
@@ -71,10 +72,36 @@ adb shell pm verify-app-links --re-verify com.teeendvn.mojimo.prod
 adb shell pm get-app-links com.teeendvn.mojimo.prod
 ```
 
+### Blog
+
+Posts are Markdown files in [`_posts/`](_posts) named `YYYY-MM-DD-slug.md`; the URL is `/blog/slug/`. Front matter:
+
+```yaml
+---
+title: "Post title"
+description: "One or two sentences for search results and the blog list."
+image: /assets/blog/slug/cover.jpg
+---
+```
+
+- Put images in `assets/blog/<slug>/`, about 900px wide JPEG, each with alt text and a caption.
+- `jekyll-seo-tag` adds the title, description, canonical URL, Open Graph and X tags, and `BlogPosting` JSON-LD.
+- Use only the hyphen `-`, never em or en dashes (see [`CLAUDE.md`](CLAUDE.md)).
+- Preview locally (Ruby 4 works with the pinned [`Gemfile`](Gemfile)):
+
+  ```sh
+  bundle config set --local path vendor/bundle
+  bundle install
+  bundle exec jekyll serve
+  ```
+
+  Then open http://localhost:4000/blog/.
+- The images in the first post come from the app's screenshot tests: `SCREENSHOT_DIR=<dir> flutter test test/screenshots` in mojimo_flutter.
+
 ### Search and link previews
 
 - Every page has a `<title>`, a meta description, a `rel="canonical"` URL on `https://mojimo.teeendvn.com/...` and Open Graph tags. Give a new page the same set.
-- When you add a page or change its content, add it to [`sitemap.xml`](sitemap.xml) or update its `lastmod`.
+- `jekyll-sitemap` generates `/sitemap.xml` (static pages, the blog and every post) and `jekyll-feed` generates `/feed.xml`. Nothing to update by hand.
 - The landing page has a `MobileApplication` JSON-LD block. Keep its description and Play URL in line with the page, and don't add ratings without real data.
 - [`assets/og-image.jpg`](assets/og-image.jpg) (1200×630) is the link preview image. It is built from [`assets/og-image.svg`](assets/og-image.svg), which embeds the app icon from `mojimo_flutter/assets/svgs/app_logo.svg`. To regenerate it on macOS:
 

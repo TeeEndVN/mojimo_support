@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | at_least: 1 -%}
+<article class="content">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    · {{ minutes }} min read
+  </p>
+
+  {{ content }}
+
+  <aside class="cta">
+    <img class="icon" src="/assets/mojimo-icon.png" alt="Mojimo app icon" width="64" height="64">
+    <div>
+      <h2>Get Mojimo</h2>
+      <p>Scan Japanese in any app and look up every word. Free on Android.</p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.teeendvn.mojimo.prod" target="_blank" rel="noopener">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="145" height="56">
+      </a>
+    </div>
+  </aside>
+
+  <a class="back" href="/blog/">← All posts</a>
+</article>

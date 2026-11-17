@@ -1,0 +1,42 @@
+title: Mojimo
+description: Read Japanese anywhere on your phone. Scan text in any app, tap a word to see its reading, meaning and kanji, and save it to your library.
+url: https://mojimo.teeendvn.com
+lang: en
+logo: /assets/mojimo-icon.png
+image: /assets/og-image.jpg
+author: TeeEndVN
+twitter:
+  username: TeeEndVN
+social:
+  name: TeeEndVN
+  links:
+    - https://x.com/TeeEndVN
+    - https://github.com/TeeEndVN
+
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+include:
+  - .well-known
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - assets/og-image.svg
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
